@@ -50,6 +50,22 @@ class ContactService{
         }
     }
 
+
+    async searchContacts(param){
+        try {
+            const response = await fetch(url+'searchContacts/'+param,{
+                method:'GET',
+                headers:{
+                    'content-type':'application/json'
+                },
+            })
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
 }
 
 export default ContactService
